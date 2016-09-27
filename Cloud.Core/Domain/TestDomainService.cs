@@ -139,7 +139,7 @@ namespace Cloud.Domain
         {
             var testCast = ExcuteTest(url, testManager);
             testCast.TestType = testType;
-            _managerMongoRepositories.AdditionalTestData(_managerUrlStrategy.TestHost + url, null);
+            _managerMongoRepositories.AdditionalTestData(_managerUrlStrategy.TestHost + url, testManager);
             return testManager;
         }
 
