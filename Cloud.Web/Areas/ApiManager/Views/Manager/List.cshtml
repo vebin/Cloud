@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "List";
+}
+@model List<Cloud.Framework.Mongo.OpenDocumentResponse>
+
+<div class="row" id="list">
+    <div class="panel-group" id="panel-655605">
+        <div v-for="node in namespace" class="panel panel-default text-center">
+            <div class="panel-heading">
+                <a class="panel-title collapsed" data-toggle="collapse" :data-parent="'#'+node.name" :href="'#'+node.name">{{node.display}} ({{node.name}})</a>
+            </div>
+            <div class="panel-collapse collapse" :id="node.name">
+                <div v-for="children in node.children" class="panel-body">
+                    <a :href="'/apimanager/manager/edit?url='+children.url">{{{children.display | toSearch searchKey}}} ({{{children.name | toSearch searchKey}}})</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" language="javascript">
+    $(function () {
+        cloud.manager.GetNamespaceEp(function (data) {
+            model.complete = data;
+            model.namespace = data;
+        });
+    });
+
+    var model = {
+        namespace: new Array(),
+        searchKey: "",
+        complete: new Array()
+    }
+    var vue = new Vue({
+        el: "#parent",
+        data: model,
+        methods: {},
+        filters: {
+            toSearch: function (value, searchKey) {
+                if (!!value && value.indexOf(this.searchKey) !== -1) {
+                    var newvalue = value.replace(searchKey, "<strong><span style=\"color:red\">" + searchKey + "</span></strong>");
+                    return newvalue;
+                }
+                return value;
+            }
+        }
+    });
+
+    function onchanges() {
+        model.namespace = new Array();
+        var self = model.namespace;
+        if (!model.searchKey.trim()) {
+            for (var node = 0 ; node < model.complete.length; node++) {
+                self.push(model.complete[node]);
+            }
+            return false;
+        }
+        $.each(model.complete, function (i, e) {
+            var temp = {};
+            var name = e.name.toLocaleLowerCase();
+            var display = !!e.display ? e.display.toLocaleLowerCase() : "";
+            var searchKey = !!model.searchKey ? model.searchKey.trim().toLocaleLowerCase() : "";
+            if (name.indexOf(searchKey) !== -1 || display.indexOf(searchKey) !== -1) {
+                self.push(e);
+                return true;
+            }
+            temp.name = e.name;
+            temp.display = e.display;
+            temp.children = new Array();
+            $.each(e.children, function (ii, ee) {
+                var eename = ee.name.toLocaleLowerCase();
+                var eedisplay = !!ee.display ? ee.display.toLocaleLowerCase() : "";
+                if (eename.indexOf(searchKey) !== -1 || eedisplay.indexOf(searchKey) !== -1) {
+                    temp.children.push(ee);
+                }
+            });
+            if (temp.children.length !== 0) {
+                self.push(temp);
+            }
+            return true;
+        });
+        return false;
+    }
+</script>
