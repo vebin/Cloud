@@ -115,6 +115,7 @@
     <Compile Include="Domain\DefaultValueAnalysis.cs" />
     <Compile Include="Domain\ExceptionEntity.cs" />
     <Compile Include="Domain\IBuildCodeExcuteStrategy.cs" />
+    <Compile Include="Domain\IExceptionEntityRepositories.cs" />
     <Compile Include="Domain\IManagerUrlStrategy.cs" />
     <Compile Include="Domain\InterfaceManager.cs" />
     <Compile Include="Domain\IScriptManagerRepositories.cs" />

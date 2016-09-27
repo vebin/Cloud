@@ -2,7 +2,10 @@
     ViewBag.Title = "List";
 }
 @model List<Cloud.Framework.Mongo.OpenDocumentResponse>
-
+@{
+    var controller = ViewBag.Controller as string;
+    var jump = ViewBag.Jump as string;
+}
 <div class="row" id="list">
     <div class="panel-group" id="panel-655605">
         <div v-for="node in namespace" class="panel panel-default text-center">
@@ -11,7 +14,8 @@
             </div>
             <div class="panel-collapse collapse" :id="node.name">
                 <div v-for="children in node.children" class="panel-body">
-                    <a :href="'/apimanager/manager/edit?url='+children.url">{{{children.display | toSearch searchKey}}} ({{{children.name | toSearch searchKey}}})</a>
+                    @*<a :href="'/apimanager/manager/edit?url='+children.url">{{{children.display | toSearch searchKey}}} ({{{children.name | toSearch searchKey}}})</a>*@
+                    <a :href="'@jump?url='+children.url">{{{children.display | toSearch searchKey}}} ({{{children.name | toSearch searchKey}}})</a>
                 </div>
             </div>
         </div>
@@ -19,10 +23,15 @@
 </div>
 <script type="text/javascript" language="javascript">
     $(function () {
-        cloud.manager.GetNamespaceEp(function (data) {
+
+        @(controller)(function (data) {
             model.complete = data;
             model.namespace = data;
         });
+        //cloud.manager.GetNamespaceEp(function (data) {
+        //    model.complete = data;
+        //    model.namespace = data;
+        //});
     });
 
     var model = {
