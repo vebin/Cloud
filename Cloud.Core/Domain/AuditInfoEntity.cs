@@ -22,10 +22,7 @@ namespace Cloud.Domain
         public string Parameters { get; set; }
         public string ServiceName { get; set; }
         public string MethodName { get; set; }
-        public long? UserId { get; set; }
-        public string ImpersonatorUserId { get; set; }
-        public string ImpersonatorTenantId { get; set; }
-        public string Details { get; set; }
+        public long? UserId { get; set; } 
         public AuditInfoEntity()
         {
 

@@ -20,7 +20,7 @@ namespace Cloud.ApiManagerServices.ExceptionManagerApp
 
 
         public List<NamespaceDto> GetNamespace()
-        { 
+        {
             var result = _exceptionEntityRepositories.GetEntities(false).Take(20).ToList();
 
             var item = result.Select(x => new NamespaceDto
@@ -32,6 +32,7 @@ namespace Cloud.ApiManagerServices.ExceptionManagerApp
                 {
                     new NamespaceDto("Id",x.Id,""),
                     new NamespaceDto("HelpLink",x.HelpLink,""),
+                    new NamespaceDto("ExceptionType",x.ExceptionType,""), 
                     new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),""),
                     new NamespaceDto("Data",x.Data.ToJsonString(),"")
                 }.ToList()
