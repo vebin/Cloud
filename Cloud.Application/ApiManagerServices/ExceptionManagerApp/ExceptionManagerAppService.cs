@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Abp.Json;
 using Cloud.ApiManagerServices.Manager.Dtos;
 using Cloud.Domain;
 using Cloud.Framework;
@@ -8,19 +11,44 @@ namespace Cloud.ApiManagerServices.ExceptionManagerApp
 {
     public class ExceptionManagerAppService : CloudAppServiceBase, IExceptionManagerAppService
     {
-        private readonly IMongoRepositories<ExceptionEntity> _mongoRepositories;
+        private readonly IExceptionEntityRepositories _exceptionEntityRepositories;
 
-        public ExceptionManagerAppService(IMongoRepositories<ExceptionEntity> mongoRepositories)
+        public ExceptionManagerAppService(IExceptionEntityRepositories exceptionEntityRepositories)
         {
-            _mongoRepositories = mongoRepositories;
+            _exceptionEntityRepositories = exceptionEntityRepositories;
         }
 
 
         public List<NamespaceDto> GetNamespace()
         {
-            _mongoRepositories.GetAllList().Sort(x=>x.CreateTime);
+            var page = new PageIndex();
+            page.CurrentIndex = 1;
+            page.PageSize = 20;
+            var result = _exceptionEntityRepositories.GetEntities(false).ToPaging(page);
 
+            var item = result.Select(x => new NamespaceDto
+            {
+                Name = x.Id,
+                Display = x.Message,
+                Url = "",
+                Children = new[]
+                {
+                    new NamespaceDto("Id",x.Id,""),
+                    new NamespaceDto("HelpLink",x.HelpLink,""),
+                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),""),
+                    new NamespaceDto("Data",x.Data.ToJsonString(),""),
+                   // new NamespaceDto("Message",x.Message,""),
+                }.ToList()
+            });
+            var returnValue = item.ToList();
+            returnValue.ForEach(x =>
+            {
+                var index = x.Name.IndexOf("-", StringComparison.Ordinal);
+                var id = x.Name.Substring(0, index);
+                x.Name = id;
 
+            });
+            return returnValue;
         }
     }
 }

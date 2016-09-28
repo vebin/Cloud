@@ -362,6 +362,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\ApiManager\ApiManagerAreaRegistration.cs" />
+    <Compile Include="Areas\ApiManager\Controllers\ExceptionManagerController.cs" />
     <Compile Include="Areas\ApiManager\Controllers\ManagerController.cs" />
     <Compile Include="Areas\ApiManager\Controllers\TestController.cs" />
     <None Include="Excute\Cloud\ApiManager\CodeBuild\CodeBuildAppService.lua" />
@@ -413,6 +414,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\ApiManager\Models\" />
+    <Folder Include="Areas\ApiManager\Views\ExceptionManager\" />
     <Folder Include="Areas\Wiki\Controllers\" />
     <Folder Include="Areas\Wiki\Models\" />
     <Folder Include="Areas\Wiki\Views\Shared\" />

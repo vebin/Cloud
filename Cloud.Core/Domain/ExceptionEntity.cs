@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Reflection;
+using System.Runtime.Serialization;
 using Abp.Domain.Entities;
 
 namespace Cloud.Domain
@@ -8,19 +9,19 @@ namespace Cloud.Domain
     /// <summary>
     /// 异常事件实体
     /// </summary>
+    [DataContract]
     public class ExceptionEntity : Entity<string>
-    {
-        public override string Id { get; set; } = Guid.NewGuid().ToString();
+    { 
+        public override string Id { get; set; } = Guid.NewGuid().ToString(); 
+        public DateTime CreateTime { get; set; } = DateTime.Now; 
+        public Exception InnerException { get; set; } 
+        public string StackTrace { get; set; } 
+        public string Source { get; set; } 
+        public IDictionary Data { get; set; } 
+        public string Message { get; set; } 
+        public string HelpLink { get; set; }
 
-        public DateTime CreateTime { get; set; } = DateTime.Now;
-
-        public Exception InnerException { get; set; }
-        public string StackTrace { get; set; }
-        public string Source { get; set; }
-        public IDictionary Data { get; set; }
-        public string Message { get; set; }
-        public string HelpLink { get; set; } 
-        public MethodBase TargetSite { get; set; }
+        public string ExceptionType { get; set; }
 
         public ExceptionEntity()
         {
@@ -34,7 +35,6 @@ namespace Cloud.Domain
             HelpLink = exception.HelpLink;
             Source = exception.Source;
             StackTrace = exception.StackTrace;
-            TargetSite = exception.TargetSite;   
 
         }
 

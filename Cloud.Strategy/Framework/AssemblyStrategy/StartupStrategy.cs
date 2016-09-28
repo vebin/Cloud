@@ -41,7 +41,7 @@ namespace Cloud.Strategy.Framework.AssemblyStrategy
             //聚合层
             var mongodbConfig = new LuaConfig(dataConfig.document());
             DocumentConfigurage.ConnectionString = mongodbConfig.Url.ToString();
-            DocumentConfigurage.Database = "CloudPlatfrom";
+            DocumentConfigurage.Database = "CloudApiManager";
 
             //地址配置(耦合太高,后期去掉)
             var testUrl = new LuaConfig(dataConfig.testUrl());

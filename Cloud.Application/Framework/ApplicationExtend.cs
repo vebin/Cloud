@@ -82,7 +82,36 @@ namespace Cloud.Framework
 
         #endregion
 
+        #region 缓存分页
 
+        /// <summary>
+        /// 缓存分页
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="pageList"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> ToPaging<T>(this IEnumerable<T> pageList, IPageIndex page) //where T : IPageIndex
+        {
+            var start = page.CurrentIndex - 1 == 0 ? 0 : (page.CurrentIndex - 1) * page.PageSize;
+            var enumerable = pageList as T[] ?? pageList.ToArray();
+            return start >= enumerable.Length ? new List<T>() : enumerable.Skip(start).Take(page.PageSize);
+        }
+
+        /// <summary>
+        /// IQueryable 分页
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="pageList"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public static IQueryable<T> ToPaging<T>(this IQueryable<T> pageList, IPageIndex page) where T : IEntity
+        {
+            var start = page.CurrentIndex - 1 == 0 ? 0 : (page.CurrentIndex - 1) * page.PageSize;
+            return pageList.OrderBy(x => x.Id).Skip(start).Take(page.PageSize);
+        }
+
+        #endregion
 
 
         public static List<T> ToList<T>(this IEnumerable<object> input)

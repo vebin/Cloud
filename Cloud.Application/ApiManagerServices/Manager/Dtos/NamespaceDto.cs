@@ -12,5 +12,16 @@ namespace Cloud.ApiManagerServices.Manager.Dtos
 
         public IEnumerable<NamespaceDto> Children { get; set; }
 
+        public NamespaceDto()
+        {
+
+        }
+        public NamespaceDto(string name, string display, string url)
+        {
+            Name = name;
+            Display = display;
+            Url = url;
+        }
+
     }
 }

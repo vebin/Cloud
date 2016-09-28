@@ -28,6 +28,7 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
         {
             ViewBag.Controller = "cloud.manager.GetNamespaceEp";
             ViewBag.Jump = "/apimanager/manager/edit";
+            ViewBag.parament = "";
             return View();
         }
 
