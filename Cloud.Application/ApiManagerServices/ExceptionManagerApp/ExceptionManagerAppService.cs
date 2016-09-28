@@ -21,9 +21,11 @@ namespace Cloud.ApiManagerServices.ExceptionManagerApp
 
         public List<NamespaceDto> GetNamespace()
         {
-            var page = new PageIndex();
-            page.CurrentIndex = 1;
-            page.PageSize = 20;
+            var page = new PageIndex
+            {
+                CurrentIndex = 1,
+                PageSize = 20
+            };
             var result = _exceptionEntityRepositories.GetEntities(false).ToPaging(page);
 
             var item = result.Select(x => new NamespaceDto
@@ -36,8 +38,7 @@ namespace Cloud.ApiManagerServices.ExceptionManagerApp
                     new NamespaceDto("Id",x.Id,""),
                     new NamespaceDto("HelpLink",x.HelpLink,""),
                     new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),""),
-                    new NamespaceDto("Data",x.Data.ToJsonString(),""),
-                   // new NamespaceDto("Message",x.Message,""),
+                    new NamespaceDto("Data",x.Data.ToJsonString(),"")
                 }.ToList()
             });
             var returnValue = item.ToList();

@@ -114,6 +114,7 @@
     <Compile Include="Domain\CommunicationDomainService.cs" />
     <Compile Include="Domain\DefaultValueAnalysis.cs" />
     <Compile Include="Domain\ExceptionEntity.cs" />
+    <Compile Include="Domain\IAuditinfoRepositories.cs" />
     <Compile Include="Domain\IBuildCodeExcuteStrategy.cs" />
     <Compile Include="Domain\IExceptionEntityRepositories.cs" />
     <Compile Include="Domain\IManagerUrlStrategy.cs" />

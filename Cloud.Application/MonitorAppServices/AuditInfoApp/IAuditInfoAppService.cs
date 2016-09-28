@@ -1,4 +1,6 @@
-﻿using Abp.Application.Services;
+﻿using System.Collections.Generic;
+using Abp.Application.Services;
+using Cloud.ApiManagerServices.Manager.Dtos;
 using Cloud.Domain;
 using Cloud.MonitorAppServices.AuditInfoApp.Dtos;
 
@@ -10,7 +12,9 @@ namespace Cloud.MonitorAppServices.AuditInfoApp
 
         AuditInfoEntity Get(string id);
 
-        void GetAll(GetAllInput input); 
+        void GetAll(GetAllInput input);
+
+        List<NamespaceDto> GetNamespace();
 
     }
 }
