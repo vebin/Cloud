@@ -12,7 +12,7 @@ namespace Cloud.Framework.Cache.Redis
         Dictionary<string, string> HashGetAll(string key, int database = 0);
 
         string[] HashGet(string key, string[] hashFields, int database = 0);
-         
+
 
 
         void HashSet<TType>(string key, TType type, int database = 0);
@@ -35,6 +35,15 @@ namespace Cloud.Framework.Cache.Redis
         void KeyDelete(string[] key, int database = 0);
 
         bool KeyExists(string key, int database = 0);
+
+        void FlushDb(int database = 0);
+
+        void FlushAll();
+
+        List<string> Keys(int database = 0);
+
+        List<string> Keys(string searchKey, int database = 0);
+
 
         #endregion
 

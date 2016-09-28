@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Abp.Dependency;
+using Cloud.Redis.Framework;
 
 namespace Cloud.Web.Areas.ApiManager.Controllers
 {
@@ -19,6 +21,25 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
         public ActionResult SqlServer()
         {
             ViewBag.Controller = "cloud.netMonitor.GetNamespaceEp";
+            ViewBag.Jump = "/apimanager/manager/edit";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
+        public ActionResult Redis()
+        {
+            ViewBag.Controller = "cloud.redisManager.GetNamespaceEp";
+            ViewBag.Jump = "/apimanager/manager/edit";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
+        public ActionResult RedisBase()
+        {
+            ViewBag.Controller = "cloud.redisManager.GetNamespaceBaseEp";
+            ViewBag.Jump = "/apimanager/manager/edit";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
+        public ActionResult FlushAll()
+        { 
+            IocManager.Instance.Resolve<RedisHelper>().FlushDb(); 
+            ViewBag.Controller = "cloud.redisManager.GetNamespaceEp";
             ViewBag.Jump = "/apimanager/manager/edit";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }

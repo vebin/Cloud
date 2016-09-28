@@ -143,6 +143,8 @@
     <Compile Include="MonitorAppServices\NetMonitorApp\Dtos\GetAllInput.cs" />
     <Compile Include="MonitorAppServices\NetMonitorApp\INetMonitorAppService.cs" />
     <Compile Include="MonitorAppServices\NetMonitorApp\NetMonitorAppService.cs" />
+    <Compile Include="MonitorAppServices\RedisManagerApp\IRedisManagerAppService.cs" />
+    <Compile Include="MonitorAppServices\RedisManagerApp\RedisManagerAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptManager\ScriptManagerApp\Dtos\DeleteInput.cs" />
     <Compile Include="ScriptManager\ScriptManagerApp\Dtos\GetAllInput.cs" />

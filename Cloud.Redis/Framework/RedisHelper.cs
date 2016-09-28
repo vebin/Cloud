@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Castle.Components.DictionaryAdapter;
 using Cloud.Framework.Cache.Redis;
 using Newtonsoft.Json;
 using StackExchange.Redis;
@@ -108,6 +109,31 @@ namespace Cloud.Redis.Framework
         {
             var redis = Manager.GetDatabase(database);
             return redis.KeyExists(key);
+        }
+
+        public void FlushDb(int database = 0)
+        {
+            var server = Manager.GetServer(CacheConfigurage.ConnectionString);
+            Manager.GetEndPoints(true);
+            server.FlushDatabase(database);
+        }
+
+        public void FlushAll()
+        {
+            var server = Manager.GetServer(CacheConfigurage.ConnectionString);
+            server.FlushAllDatabases();
+        }
+
+        public List<string> Keys(int database = 0)
+        {
+            var server = Manager.GetServer(CacheConfigurage.ConnectionString);
+            return server.Keys(database).Select(key => (string)key).ToList();
+        }
+
+        public List<string> Keys(string searchKey, int database = 0)
+        {
+            var server = Manager.GetServer(CacheConfigurage.ConnectionString);
+            return server.Keys(database, searchKey).Select(key => (string)key).ToList();
         }
 
         #endregion 

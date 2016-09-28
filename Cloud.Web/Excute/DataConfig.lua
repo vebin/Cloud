@@ -58,7 +58,7 @@ end
 -- 缓存
 dataConfig.cache = function()
     local result = {
-        url = "127.0.0.1:6380",
+        url = "localhost:6380,allowAdmin=true",
         name = "Redis",
         data = { key, value },
         type = "cache",
