@@ -112,10 +112,13 @@ namespace Cloud.Redis.Framework
         }
 
         public void FlushDb(int database = 0)
-        {
-            var server = Manager.GetServer(CacheConfigurage.ConnectionString);
-            Manager.GetEndPoints(true);
-            server.FlushDatabase(database);
+        { 
+            var keys = Keys();
+            var redis = Manager.GetDatabase(database);
+            foreach (var key in keys)
+            {
+                redis.KeyDelete(key);
+            }
         }
 
         public void FlushAll()

@@ -49,19 +49,35 @@ namespace Cloud.MonitorAppServices.RedisManagerApp
                 Name = GetGuid(),
                 Display = x,
                 Url = x,
-                Children = _redisHelper.HashGetAll(x).Select(y => new NamespaceDto
+                Children = _redisHelper.HashGetAll(x).Where(w => w.Key != "__entityItself").Select(y => new NamespaceDto
                 {
                     Name = y.Key,
                     Display = y.Value
                 }).ToList()
             });
-            var returnValue = item.ToList();
-            return returnValue;
+            return item.ToList();
+        }
+
+        public List<NamespaceDto> Remove()
+        {
+            var item = new List<NamespaceDto>()
+            {
+                new NamespaceDto("Remove","是否清除所有缓存","")
+                {
+                    Children = new []
+                    {
+                        new NamespaceDto("OK","确定","Confirm"),
+                        new NamespaceDto("Close","取消","Close")
+                    }
+                }
+
+            };
+            return item.ToList();
         }
 
         public static string GetGuid()
         {
-            var id = Guid.NewGuid().ToString(); 
+            var id = Guid.NewGuid().ToString();
             var index = id.IndexOf("-", StringComparison.Ordinal);
             var nid = id.Substring(0, index);
             return nid;

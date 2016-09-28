@@ -8,5 +8,6 @@ namespace Cloud.MonitorAppServices.RedisManagerApp
     {
         List<NamespaceDto> GetNamespace();
         List<NamespaceDto> GetNamespaceBase();
+        List<NamespaceDto> Remove();
     }
 }

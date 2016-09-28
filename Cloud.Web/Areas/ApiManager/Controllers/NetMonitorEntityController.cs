@@ -36,11 +36,22 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
             ViewBag.Jump = "/apimanager/manager/edit";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
-        public ActionResult FlushAll()
-        { 
-            IocManager.Instance.Resolve<RedisHelper>().FlushDb(); 
+
+        public ActionResult Remove()
+        {
+            ViewBag.Controller = "cloud.redisManager.RemoveEp";
+            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
+
+        public ActionResult FlushAll(string url)
+        {
+            if (url == "Confirm")
+            {
+                IocManager.Instance.Resolve<RedisHelper>().FlushDb();
+            }
             ViewBag.Controller = "cloud.redisManager.GetNamespaceEp";
-            ViewBag.Jump = "/apimanager/manager/edit";
+            ViewBag.Jump = "/apimanager/NetMonitorEntity/edit";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
     }
