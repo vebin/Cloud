@@ -1,4 +1,6 @@
-﻿using Abp.Application.Services;
+﻿using System.Collections.Generic;
+using Abp.Application.Services;
+using Cloud.ApiManagerServices.Manager.Dtos;
 using Cloud.MonitorAppServices.NetMonitorApp.Dtos;
 
 namespace Cloud.MonitorAppServices.NetMonitorApp
@@ -8,5 +10,8 @@ namespace Cloud.MonitorAppServices.NetMonitorApp
         void Get(string id);
 
         void GetAll(GetAllInput input);
+
+
+        List<NamespaceDto> GetNamespace();
     }
 }

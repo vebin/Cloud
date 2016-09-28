@@ -20,13 +20,8 @@ namespace Cloud.ApiManagerServices.ExceptionManagerApp
 
 
         public List<NamespaceDto> GetNamespace()
-        {
-            var page = new PageIndex
-            {
-                CurrentIndex = 1,
-                PageSize = 20
-            };
-            var result = _exceptionEntityRepositories.GetEntities(false).ToPaging(page);
+        { 
+            var result = _exceptionEntityRepositories.GetEntities(false).Take(20).ToList();
 
             var item = result.Select(x => new NamespaceDto
             {

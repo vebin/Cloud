@@ -114,6 +114,7 @@
     <Compile Include="Manager\AuditinfoRepositories.cs" />
     <Compile Include="Manager\ExceptionEntityRepositories.cs" />
     <Compile Include="Manager\ManagerMongoRepositories.cs" />
+    <Compile Include="Manager\NetMonitorRepositories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

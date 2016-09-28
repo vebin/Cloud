@@ -31,13 +31,8 @@ namespace Cloud.MonitorAppServices.AuditInfoApp
         }
 
         public List<NamespaceDto> GetNamespace()
-        {
-            var page = new PageIndex
-            {
-                CurrentIndex = 1,
-                PageSize = 20
-            };
-            var result = _mongoRepositories.GetEntities(false).ToPaging(page);
+        { 
+            var result = _mongoRepositories.GetEntities(false).Take(20).ToList();
 
             var item = result.Select(x => new NamespaceDto
             {
@@ -46,17 +41,18 @@ namespace Cloud.MonitorAppServices.AuditInfoApp
                 Url = x.ServiceName + "." + x.MethodName,
                 Children = new[]
                 {
-                    new NamespaceDto("Id",x.Exception.ToString(),""),
-                    new NamespaceDto("Id",x.BrowserInfo,""),
-                    new NamespaceDto("Id",x.ClientIpAddress,""),
-                    new NamespaceDto("Id",x.ClientName,""),
-                    new NamespaceDto("Id",x.CustomData,""),
-                    new NamespaceDto("Id",x.ExecutionDuration.ToString(),""),
-                    new NamespaceDto("Id",x.ExecutionTime.ToString("yyyy/m/d HH:mm:ss"),""),
-                    new NamespaceDto("Id",x.Parameters,""),
-                    new NamespaceDto("Id",x.ServiceName,""),
-                    new NamespaceDto("Id",x.MethodName,""),
-                    new NamespaceDto("Id",x.UserId.ToString(),"")
+                    new NamespaceDto("Id",x.Id,""),
+                    new NamespaceDto("Exception",x.Exception?.ToString(),""),
+                    new NamespaceDto("BrowserInfo",x.BrowserInfo,""),
+                    new NamespaceDto("ClientIpAddress",x.ClientIpAddress,""),
+                    new NamespaceDto("ClientName",x.ClientName,""),
+                    new NamespaceDto("CustomData",x.CustomData,""),
+                    new NamespaceDto("ExecutionDuration",x.ExecutionDuration.ToString(),""),
+                    new NamespaceDto("ExecutionTime",x.ExecutionTime.ToString("yyyy/m/d HH:mm:ss"),""),
+                    new NamespaceDto("Parameters",x.Parameters,""),
+                    new NamespaceDto("ServiceName",x.ServiceName,""),
+                    new NamespaceDto("MethodName",x.MethodName,""),
+                    new NamespaceDto("UserId",x.UserId?.ToString(),"")
                 }.ToList()
             });
             var returnValue = item.ToList();

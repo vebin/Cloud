@@ -15,5 +15,12 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
             ViewBag.Jump = "/apimanager/manager/edit";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
+
+        public ActionResult SqlServer()
+        {
+            ViewBag.Controller = "cloud.netMonitor.GetNamespaceEp";
+            ViewBag.Jump = "/apimanager/manager/edit";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
     }
 }

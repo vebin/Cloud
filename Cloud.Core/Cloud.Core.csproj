@@ -118,6 +118,7 @@
     <Compile Include="Domain\IBuildCodeExcuteStrategy.cs" />
     <Compile Include="Domain\IExceptionEntityRepositories.cs" />
     <Compile Include="Domain\IManagerUrlStrategy.cs" />
+    <Compile Include="Domain\INetMonitorRepositories.cs" />
     <Compile Include="Domain\InterfaceManager.cs" />
     <Compile Include="Domain\IScriptManagerRepositories.cs" />
     <Compile Include="Domain\NetMonitorEntity.cs" />
