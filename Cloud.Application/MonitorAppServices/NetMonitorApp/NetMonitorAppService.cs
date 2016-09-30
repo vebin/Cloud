@@ -30,7 +30,7 @@ namespace Cloud.MonitorAppServices.NetMonitorApp
 
         public List<NamespaceDto> GetNamespace()
         {
-            var result = _netMonitorRepositories.GetEntities(false).Take(20).ToList();
+            var result = _netMonitorRepositories.GetEntities(false).Take(40).ToList();
 
             var item = result.Select(x => new NamespaceDto
             {

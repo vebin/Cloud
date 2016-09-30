@@ -33,7 +33,7 @@ namespace Cloud.MonitorAppServices.ExceptionApp
 
         public List<NamespaceDto> GetNamespace()
         {
-            var result = _exceptionEntityRepositories.GetEntities(false).Take(20).ToList();
+            var result = _exceptionEntityRepositories.GetEntities(false).Take(40).ToList();
 
             var item = result.Select(x => new NamespaceDto
             {
@@ -120,7 +120,7 @@ namespace Cloud.MonitorAppServices.ExceptionApp
 
         public List<NamespaceDto> NotInvalidOperationException()
         {
-            var result = _exceptionEntityRepositories.GetEntities(false).Where(x => x.ExceptionType == "InvalidOperationException").Take(40).ToList();
+            var result = _exceptionEntityRepositories.GetEntities(false).Where(x => x.ExceptionType != "InvalidOperationException").Take(40).ToList();
 
             var item = result.Select(x => new NamespaceDto
             {

@@ -8,7 +8,7 @@
         {{display}} ({{name}})
     </h4>
     <form role="form">
-        <div v-for="node in details" class="form-group">
+        <div v-if="!!node.display" v-for="node in details" class="form-group">
             <label :for="node.name">
                 {{node.name}}
             </label>
