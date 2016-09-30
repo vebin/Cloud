@@ -12,7 +12,7 @@ namespace Cloud.MonitorAppServices.ExceptionApp.Dtos
 
         public IEnumerable<GetDetailsOutput> Details { get; set; }
 
-        public GetDetailsOutput(string display, string name, string type)
+        public GetDetailsOutput(string name, string display, string type)
         {
             Display = display;
             Name = name;

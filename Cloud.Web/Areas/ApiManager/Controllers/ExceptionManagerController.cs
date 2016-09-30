@@ -12,7 +12,7 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
         public ActionResult Index()
         {
             ViewBag.Controller = "cloud.exception.GetNamespaceEp";
-            ViewBag.Jump = "/apimanager/manager/edit";
+            ViewBag.Jump = "/apimanager/ExceptionManager/details";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
 
@@ -20,28 +20,35 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
         public ActionResult FriendException()
         {
             ViewBag.Controller = "cloud.exception.FriendExceptionEp";
-            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            ViewBag.Jump = "/apimanager/ExceptionManager/details";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
 
         public ActionResult NotFriendException()
         {
             ViewBag.Controller = "cloud.exception.NotFriendExceptionEp";
-            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            ViewBag.Jump = "/apimanager/ExceptionManager/details";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
         public ActionResult InvalidOperationException()
         {
             ViewBag.Controller = "cloud.exception.InvalidOperationExceptionEp";
-            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            ViewBag.Jump = "/apimanager/ExceptionManager/details";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
 
         public ActionResult NotInvalidOperationException()
         {
             ViewBag.Controller = "cloud.exception.NotInvalidOperationExceptionEp";
-            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            ViewBag.Jump = "/apimanager/ExceptionManager/details";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
+
+        public ActionResult Details(string url)
+        {
+            ViewBag.detailsUrl = "cloud.exception.GetDetailsEp";
+            return View("~/Areas/ApiManager/Views/Manager/Details.cshtml");
+        }
+
     }
 }

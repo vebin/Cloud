@@ -5,14 +5,17 @@
 }
 <div class="row" id="edit">
     <h4 class="text-center">
-        {{namespace.display}} ({{namespace.name}})
+        {{display}} ({{name}})
     </h4>
     <form role="form">
-        <div v-for="node in namespace.Details" class="form-group">
+        <div v-for="node in details" class="form-group">
             <label :for="node.name">
-                {{node.display}} ({{node.name}})
+                {{node.name}}
             </label>
-            <input :value="node.display" v-bind:type="node.type" class="form-control data-bind" :id="node.name" :placeholder="node.type" />
+            <input v-if="node.type=='Input'" :value="node.display" class="form-control data-bind" :id="node.name" />
+            <div v-if="node.type=='MaxText'" class="row">
+                <textarea rows="8" v-model="node.display" class="form-control" readonly="readonly"></textarea>
+            </div>
         </div>
     </form>
 
@@ -32,32 +35,22 @@
         return theRequest;
     }
 
-    $(function () {
-        $.ajax({
-            url: "@detailsUrl",
-            data: { input: GetRequest()["url"] },
-            type: "Get",
-            dataType: "json",
-            success: function (data) {
-                model.namespace = data.result;
-            },
-            error: function (e, r) {
-                console.log(e, r);
-            }
-        });
+
+    @(detailsUrl)(GetRequest()["url"], function (data) {
+        model.display = data.display;
+        model.name = data.name;
+        model.details = data.details;
     });
 
     var model = {
-        namespace: new Array(),
-        state: 0,
-        result: "",
-        take: 0,
-        postAjax: ""
+        details: new Array(),
+        display: "",
+        name: ""
     }
     var first = true;
     var vue = new Vue({
         el: "#parent",
         data: model
-    }); 
+    });
 
 </script>

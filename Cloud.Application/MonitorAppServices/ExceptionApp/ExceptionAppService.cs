@@ -42,11 +42,11 @@ namespace Cloud.MonitorAppServices.ExceptionApp
                 Url = "",
                 Children = new[]
                 {
-                    new NamespaceDto("Id",x.Id,""),
-                    new NamespaceDto("HelpLink",x.HelpLink,""),
-                    new NamespaceDto("ExceptionType",x.ExceptionType,""),
-                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),""),
-                    new NamespaceDto("Data",x.Data.ToJsonString(),"")
+                    new NamespaceDto("Id",x.Id,x.Id),
+                    new NamespaceDto("HelpLink",x.HelpLink,x.Id),
+                    new NamespaceDto("ExceptionType",x.ExceptionType,x.Id),
+                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),x.Id),
+                    new NamespaceDto("Data",x.Data.ToJsonString(),x.Id)
                 }.ToList()
             });
             var returnValue = item.ToList();
@@ -71,11 +71,11 @@ namespace Cloud.MonitorAppServices.ExceptionApp
                 Url = "",
                 Children = new[]
                 {
-                    new NamespaceDto("Id",x.Id,""),
-                    new NamespaceDto("HelpLink",x.HelpLink,""),
-                    new NamespaceDto("ExceptionType",x.ExceptionType,""),
-                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),""),
-                    new NamespaceDto("Data",x.Data.ToJsonString(),"")
+                    new NamespaceDto("Id",x.Id,x.Id),
+                    new NamespaceDto("HelpLink",x.HelpLink,x.Id),
+                    new NamespaceDto("ExceptionType",x.ExceptionType,x.Id),
+                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),x.Id),
+                    new NamespaceDto("Data",x.Data.ToJsonString(),x.Id)
                 }.ToList()
             });
             var returnValue = item.ToList();
@@ -100,11 +100,11 @@ namespace Cloud.MonitorAppServices.ExceptionApp
                 Url = "",
                 Children = new[]
                 {
-                    new NamespaceDto("Id",x.Id,""),
-                    new NamespaceDto("HelpLink",x.HelpLink,""),
-                    new NamespaceDto("ExceptionType",x.ExceptionType,""),
-                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),""),
-                    new NamespaceDto("Data",x.Data.ToJsonString(),"")
+                    new NamespaceDto("Id",x.Id,x.Id),
+                    new NamespaceDto("HelpLink",x.HelpLink,x.Id),
+                    new NamespaceDto("ExceptionType",x.ExceptionType,x.Id),
+                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),x.Id),
+                    new NamespaceDto("Data",x.Data.ToJsonString(),x.Id)
                 }.ToList()
             });
             var returnValue = item.ToList();
@@ -129,11 +129,11 @@ namespace Cloud.MonitorAppServices.ExceptionApp
                 Url = "",
                 Children = new[]
                 {
-                    new NamespaceDto("Id",x.Id,""),
-                    new NamespaceDto("HelpLink",x.HelpLink,""),
-                    new NamespaceDto("ExceptionType",x.ExceptionType,""),
-                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),""),
-                    new NamespaceDto("Data",x.Data.ToJsonString(),"")
+                    new NamespaceDto("Id",x.Id,x.Id),
+                    new NamespaceDto("HelpLink",x.HelpLink,x.Id),
+                    new NamespaceDto("ExceptionType",x.ExceptionType,x.Id),
+                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),x.Id),
+                    new NamespaceDto("Data",x.Data.ToJsonString(),x.Id)
                 }.ToList()
             });
             var returnValue = item.ToList();
@@ -158,11 +158,11 @@ namespace Cloud.MonitorAppServices.ExceptionApp
                 Url = "",
                 Children = new[]
                 {
-                    new NamespaceDto("Id",x.Id,""),
-                    new NamespaceDto("HelpLink",x.HelpLink,""),
-                    new NamespaceDto("ExceptionType",x.ExceptionType,""),
-                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),""),
-                    new NamespaceDto("Data",x.Data.ToJsonString(),"")
+                    new NamespaceDto("Id",x.Id,x.Id),
+                    new NamespaceDto("HelpLink",x.HelpLink,x.Id),
+                    new NamespaceDto("ExceptionType",x.ExceptionType,x.Id),
+                    new NamespaceDto("CreateTime",x.CreateTime.ToString("yyyy/m/d HH:mm:ss"),x.Id),
+                    new NamespaceDto("Data",x.Data.ToJsonString(),x.Id)
                 }.ToList()
             });
             var returnValue = item.ToList();
