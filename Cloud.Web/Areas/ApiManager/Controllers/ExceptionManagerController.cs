@@ -15,5 +15,33 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
             ViewBag.Jump = "/apimanager/manager/edit";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
+
+
+        public ActionResult FriendException()
+        {
+            ViewBag.Controller = "cloud.exceptionManager.FriendExceptionEp";
+            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
+
+        public ActionResult NotFriendException()
+        {
+            ViewBag.Controller = "cloud.exceptionManager.NotFriendExceptionEp";
+            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
+        public ActionResult InvalidOperationException()
+        {
+            ViewBag.Controller = "cloud.exceptionManager.InvalidOperationExceptionEp";
+            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
+
+        public ActionResult NotInvalidOperationException()
+        {
+            ViewBag.Controller = "cloud.exceptionManager.NotInvalidOperationExceptionEp";
+            ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
+            return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
+        }
     }
 }

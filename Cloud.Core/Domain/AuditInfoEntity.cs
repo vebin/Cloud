@@ -12,7 +12,7 @@ namespace Cloud.Domain
         public bool IsTransient() => true;
         public string TenantId { get; set; }
         public string Id { get; set; } = Guid.NewGuid().ToString();
-        public Exception Exception { get; set; }
+        public dynamic Exception { get; set; }
         public string BrowserInfo { get; set; }
         public string ClientIpAddress { get; set; }
         public string ClientName { get; set; }

@@ -9,39 +9,44 @@ using Abp.Events.Bus.Entities;
 using Abp.Events.Bus.Handlers;
 using Abp.Json;
 using Cloud.Domain;
+using Cloud.Temp;
 
 namespace Cloud.Framework.Assembly
 {
-    public class EntityEventBus : Entity,
-        IEventHandler<EntityCreatedEventData<Entity>>,
-        IEventHandler<EntityChangedEventData<Entity>>,
-        IEventHandler<EntityDeletedEventData<Entity>>,
-        ITransientDependency
+    public class EntityEventBus :
+        IEventHandler<EntityCreatedEventData<UserInfo>>,
+        IEventHandler<EntityChangedEventData<UserInfo>>,
+        IEventHandler<EntityDeletedEventData<UserInfo>>,
+        ISingletonDependency
     {
 
-        private readonly ScriptDomainService _scriptDomainService;
+       // private readonly ScriptDomainService _scriptDomainService;
+        private static int count = 0;
 
-        public EntityEventBus(ScriptDomainService scriptDomainService)
+        //public EntityEventBus(ScriptDomainService scriptDomainService)
+        //{
+        //    _scriptDomainService = scriptDomainService;
+        //}
+
+
+        public void HandleEvent(EntityCreatedEventData<UserInfo> eventData)
         {
-            _scriptDomainService = scriptDomainService;
+            count++;
+            //var result = _scriptDomainService.Physics.EntityCreatedEventData(eventData.Entity);
         }
 
-
-        public void HandleEvent(EntityCreatedEventData<Entity> eventData)
+        public void HandleEvent(EntityChangedEventData<UserInfo> eventData)
         {
-            var result = _scriptDomainService.Physics.EntityCreatedEventData(eventData.Entity);
-        }
-
-        public void HandleEvent(EntityChangedEventData<Entity> eventData)
-        {
+            count++;
             //IocManager.Instance.Resolve<INetWorkStrategy>().Send("SqlCode", new { sql, parament });
-            var result = _scriptDomainService.Physics.EntityChangedEventData(eventData.Entity);
+            // var result = _scriptDomainService.Physics.EntityChangedEventData(eventData.Entity);
 
         }
 
-        public void HandleEvent(EntityDeletedEventData<Entity> eventData)
+        public void HandleEvent(EntityDeletedEventData<UserInfo> eventData)
         {
-            var result = _scriptDomainService.Physics.EntityDeletedEventData(eventData.Entity);
-        }
+            count++;
+            // var result = _scriptDomainService.Physics.EntityDeletedEventData(eventData.Entity);
+        } 
     }
 }

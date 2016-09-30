@@ -9,6 +9,12 @@ namespace Cloud.ApiManagerServices.ExceptionManagerApp
     {
         List<NamespaceDto> GetNamespace();
 
+        List<NamespaceDto> NotFriendException();
 
+        List<NamespaceDto> FriendException();
+         
+        List<NamespaceDto> NotInvalidOperationException();
+
+        List<NamespaceDto> InvalidOperationException();
     }
 }

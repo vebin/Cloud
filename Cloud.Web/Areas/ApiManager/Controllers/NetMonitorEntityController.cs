@@ -44,6 +44,7 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
 
+
         public ActionResult FlushAll(string url)
         {
             if (url == "Confirm")
