@@ -111,8 +111,6 @@
   <ItemGroup>
     <Compile Include="ApiManagerServices\CodeBuild\CodeBuildAppService.cs" />
     <Compile Include="ApiManagerServices\CodeBuild\ICodeBuildAppService.cs" />
-    <Compile Include="ApiManagerServices\ExceptionManagerApp\ExceptionManagerAppService.cs" />
-    <Compile Include="ApiManagerServices\ExceptionManagerApp\IExceptionManagerAppService.cs" />
     <Compile Include="ApiManagerServices\Manager\Dtos\DeleteInput.cs" />
     <Compile Include="ApiManagerServices\Manager\Dtos\GetInfoOutput.cs" />
     <Compile Include="ApiManagerServices\Manager\Dtos\GetInput.cs" />
@@ -138,6 +136,8 @@
     <Compile Include="MonitorAppServices\AuditInfoApp\Dtos\GetAllInput.cs" />
     <Compile Include="MonitorAppServices\AuditInfoApp\IAuditInfoAppService.cs" />
     <Compile Include="MonitorAppServices\ExceptionApp\Dtos\GetAllInput.cs" />
+    <Compile Include="MonitorAppServices\ExceptionApp\Dtos\GetDetailsInput.cs" />
+    <Compile Include="MonitorAppServices\ExceptionApp\Dtos\GetDetailsOutput.cs" />
     <Compile Include="MonitorAppServices\ExceptionApp\ExceptionAppService.cs" />
     <Compile Include="MonitorAppServices\ExceptionApp\IExceptionAppService.cs" />
     <Compile Include="MonitorAppServices\NetMonitorApp\Dtos\GetAllInput.cs" />

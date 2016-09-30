@@ -11,7 +11,7 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
         // GET: ApiManager/ExceptionManager
         public ActionResult Index()
         {
-            ViewBag.Controller = "cloud.exceptionManager.GetNamespaceEp";
+            ViewBag.Controller = "cloud.exception.GetNamespaceEp";
             ViewBag.Jump = "/apimanager/manager/edit";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
@@ -19,27 +19,27 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
 
         public ActionResult FriendException()
         {
-            ViewBag.Controller = "cloud.exceptionManager.FriendExceptionEp";
+            ViewBag.Controller = "cloud.exception.FriendExceptionEp";
             ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
 
         public ActionResult NotFriendException()
         {
-            ViewBag.Controller = "cloud.exceptionManager.NotFriendExceptionEp";
+            ViewBag.Controller = "cloud.exception.NotFriendExceptionEp";
             ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
         public ActionResult InvalidOperationException()
         {
-            ViewBag.Controller = "cloud.exceptionManager.InvalidOperationExceptionEp";
+            ViewBag.Controller = "cloud.exception.InvalidOperationExceptionEp";
             ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
 
         public ActionResult NotInvalidOperationException()
         {
-            ViewBag.Controller = "cloud.exceptionManager.NotInvalidOperationExceptionEp";
+            ViewBag.Controller = "cloud.exception.NotInvalidOperationExceptionEp";
             ViewBag.Jump = "/apimanager/NetMonitorEntity/FlushAll";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }

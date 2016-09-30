@@ -14,10 +14,10 @@ namespace Cloud.Domain
     { 
         public override string Id { get; set; } = Guid.NewGuid().ToString(); 
         public DateTime CreateTime { get; set; } = DateTime.Now; 
-        public Exception InnerException { get; set; } 
+        public string InnerException { get; set; } 
         public string StackTrace { get; set; } 
         public string Source { get; set; } 
-        public IDictionary Data { get; set; } 
+        public string Data { get; set; } 
         public string Message { get; set; } 
         public string HelpLink { get; set; }
 
@@ -28,9 +28,7 @@ namespace Cloud.Domain
 
         }
         public ExceptionEntity(Exception exception)
-        {
-            InnerException = exception.InnerException;
-            Data = exception.Data;
+        { 
             Message = exception.Message;
             HelpLink = exception.HelpLink;
             Source = exception.Source;

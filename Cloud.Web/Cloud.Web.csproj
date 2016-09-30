@@ -334,6 +334,7 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="Areas\ApiManager\Views\Manager\Details.cshtml" />
     <None Include="Excute\Cloud\Strategy\ApiManager\BuildCodeExcuteStrategy.lua" />
     <None Include="Properties\PublishProfiles\CloudFast.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
@@ -415,8 +416,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\ApiManager\Models\" />
-    <Folder Include="Areas\ApiManager\Views\ExceptionManager\" />
-    <Folder Include="Areas\ApiManager\Views\NetMonitorEntity\" />
     <Folder Include="Areas\Wiki\Controllers\" />
     <Folder Include="Areas\Wiki\Models\" />
     <Folder Include="Areas\Wiki\Views\Shared\" />
