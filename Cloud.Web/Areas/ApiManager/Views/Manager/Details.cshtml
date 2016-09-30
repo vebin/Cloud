@@ -12,7 +12,7 @@
             <label :for="node.name">
                 {{node.name}}
             </label>
-            <input v-if="node.type=='Input'" :value="node.display" class="form-control data-bind" :id="node.name" />
+            <input v-if="node.type!='MaxText'" :value="node.display" class="form-control data-bind" :id="node.name" />
             <div v-if="node.type=='MaxText'" class="row">
                 <textarea rows="8" v-model="node.display" class="form-control" readonly="readonly"></textarea>
             </div>

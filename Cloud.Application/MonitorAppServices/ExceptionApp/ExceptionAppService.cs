@@ -193,8 +193,8 @@ namespace Cloud.MonitorAppServices.ExceptionApp
                 new GetDetailsOutput("Source",result.Source,TypeState.Input),
                 new GetDetailsOutput("CreateTime",result.CreateTime.ToString("yy-MM-dd HH:mm:ss"),TypeState.DateTime),
                 new GetDetailsOutput("InnerException",result.InnerException,TypeState.Input),
+                new GetDetailsOutput("Data",result.Data,TypeState.Input),
                 new GetDetailsOutput("StackTrace",result.StackTrace,TypeState.MaxText),
-                new GetDetailsOutput("Data",result.Data,TypeState.MaxText),
             };
 
             return output;

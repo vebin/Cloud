@@ -14,26 +14,26 @@ namespace Cloud.Web.Areas.ApiManager.Controllers
         public ActionResult Index()
         {
             ViewBag.Controller = "cloud.auditInfo.GetNamespaceEp";
-            ViewBag.Jump = "/apimanager/manager/edit";
+            ViewBag.Jump = "#";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
 
         public ActionResult SqlServer()
         {
             ViewBag.Controller = "cloud.netMonitor.GetNamespaceEp";
-            ViewBag.Jump = "/apimanager/manager/edit";
+            ViewBag.Jump = "#";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
         public ActionResult Redis()
         {
             ViewBag.Controller = "cloud.redisManager.GetNamespaceEp";
-            ViewBag.Jump = "/apimanager/manager/edit";
+            ViewBag.Jump = "#";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
         public ActionResult RedisBase()
         {
             ViewBag.Controller = "cloud.redisManager.GetNamespaceBaseEp";
-            ViewBag.Jump = "/apimanager/manager/edit";
+            ViewBag.Jump = "#";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
 
