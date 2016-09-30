@@ -1,5 +1,7 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
 using Abp.Application.Services;
+using Cloud.ApiManagerServices.Manager.Dtos;
 
 namespace Cloud.User
 {
@@ -7,7 +9,10 @@ namespace Cloud.User
     {
 
         [HttpGet]
-        void Get(); 
+        void Get();
 
+
+        List<NamespaceDto> Call();
+        List<NamespaceDto> Info();
     }
 }
