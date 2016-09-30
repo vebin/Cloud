@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Cloud.Domain
 {
-    public class NetMonitorEntity : Entity<string>, IMongodbBase
+    public class NetMonitorEntity : Entity<string>
     {
         public override string Id { get; set; } = Guid.NewGuid().ToString().Trim('-');
 

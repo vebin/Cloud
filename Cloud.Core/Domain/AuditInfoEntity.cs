@@ -1,6 +1,7 @@
 ﻿using System;
 using Abp.Auditing;
 using Abp.Domain.Entities;
+using Newtonsoft.Json;
 
 namespace Cloud.Domain
 {
@@ -9,10 +10,10 @@ namespace Cloud.Domain
     /// </summary>
     public class AuditInfoEntity : IEntity<string>
     {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public bool IsTransient() => true;
         public string TenantId { get; set; }
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        public dynamic Exception { get; set; }
+        public string Exception { get; set; }
         public string BrowserInfo { get; set; }
         public string ClientIpAddress { get; set; }
         public string ClientName { get; set; }
@@ -22,7 +23,8 @@ namespace Cloud.Domain
         public string Parameters { get; set; }
         public string ServiceName { get; set; }
         public string MethodName { get; set; }
-        public long? UserId { get; set; } 
+        public long? UserId { get; set; }
+
         public AuditInfoEntity()
         {
 
@@ -30,7 +32,7 @@ namespace Cloud.Domain
 
         public AuditInfoEntity(AuditInfo auditInfo)
         {
-            Exception = auditInfo.Exception;
+            Exception = auditInfo.Exception == null ? null : JsonConvert.SerializeObject(auditInfo.Exception);
             BrowserInfo = auditInfo.BrowserInfo;
             ClientIpAddress = auditInfo.ClientIpAddress;
             ClientName = auditInfo.ClientName;
