@@ -25,7 +25,7 @@ namespace Cloud.Dapper.Framework
         }
 
 
-        public override List<TEntity> GetAllList(string where, object parament = null, string field = "*")
+        public override List<TEntity> GetList(string where, object parament = null, string field = "*")
         {
             return ConnectionExcute(x => x.Query<TEntity>($"select {field} from [" + TableName + "] " + where, parament).ToList());
         }
@@ -120,7 +120,7 @@ namespace Cloud.Dapper.Framework
 
     public class DapperRepositories : IDapperRepositories
     {
-        public T ConnectionExcute<T>(Func<IDbConnection, T> func)
+        public virtual T ConnectionExcute<T>(Func<IDbConnection, T> func)
         {
             using (IDbConnection conn = new SqlConnection(PersistentConfigurage.MasterConnectionString))
             {
@@ -217,7 +217,7 @@ namespace Cloud.Dapper.Framework
 
         #region Paging
 
-        public List<TOutType> Pagination<TOutType>(
+        public virtual List<TOutType> Pagination<TOutType>(
             string sql,
             int currentIndex,
             int pageSize,
@@ -230,7 +230,7 @@ namespace Cloud.Dapper.Framework
             return ConnectionExcute(x => x.Query<TOutType>(excuteSql, parament).ToList());
         }
 
-        public PageEntity<TOutType> Pagination<TOutType>(string sql, int currentIndex, int pageSize, bool sumCount, string translate = "*", string orderBy = "Id", object parament = null)
+        public virtual PageEntity<TOutType> Pagination<TOutType>(string sql, int currentIndex, int pageSize, bool sumCount, string translate = "*", string orderBy = "Id", object parament = null)
         {
             var excuteSql = GetPaginationSql(sql, currentIndex, pageSize, translate, orderBy) + $";SELECT A.COUNT FROM ( SELECT COUNT(1) AS COUNT FROM {sql}) A";
             var read = ConnectionExcute(x => x.QueryMultiple(excuteSql, parament));

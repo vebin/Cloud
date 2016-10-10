@@ -11,11 +11,11 @@ namespace Cloud.Dapper.Framework
     {
         #region query  
 
-        public abstract List<TEntity> GetAllList(string where, object parament = null, string field = "*");
+        public abstract List<TEntity> GetList(string where, object parament = null, string field = "*");
 
         public virtual Task<List<TEntity>> GetAllListAsync(string where, object parament = null, string field = "*")
         {
-            return Task.FromResult(GetAllList(where, parament, field));
+            return Task.FromResult(GetList(where, parament, field));
         }
 
         public abstract TEntity Get(int id);

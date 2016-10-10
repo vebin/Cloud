@@ -27,7 +27,7 @@ namespace Cloud.User
         }
 
         public List<NamespaceDto> Call()
-        {
+        {  
             var item = new List<NamespaceDto>()
             {
                 new NamespaceDto("CallMyPhone","是否拨打我的电话","")
@@ -39,9 +39,8 @@ namespace Cloud.User
                     }
                 }
 
-            };
-            return item.ToList();
-
+            }; 
+            return item.ToList(); 
         }
 
         public List<NamespaceDto> Info()

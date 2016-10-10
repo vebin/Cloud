@@ -15,4 +15,4 @@ namespace Cloud.User
         List<NamespaceDto> Call();
         List<NamespaceDto> Info();
     }
-}
+} 

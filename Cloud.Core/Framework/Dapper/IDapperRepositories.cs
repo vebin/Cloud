@@ -15,7 +15,7 @@ namespace Cloud.Framework.Dapper
 
         #region Select/Get/Query  
 
-        List<TEntity> GetAllList(string where = null, object parament = null, string field = "*");
+        List<TEntity> GetList(string where = null, object parament = null, string field = "*");
 
         Task<List<TEntity>> GetAllListAsync(string where = null, object parament = null, string field = "*");
 
