@@ -15,6 +15,7 @@ namespace Cloud.ApiManagerServices.TestManager
         private readonly IManagerMongoRepositories _managerMongoRepositories;
         private readonly IManagerUrlStrategy _managerUrlStrategy;
         private readonly TestDomainService _testDomainService;
+        
 
         public TestManagerAppService(
             IManagerMongoRepositories managerMongoRepositories,
@@ -89,6 +90,15 @@ namespace Cloud.ApiManagerServices.TestManager
         public Task<List<TestManagerDto>> TestAllError()
         {
             return Task.Run(() => _testDomainService.ExcuteTaskAllFormError().MapTo<List<TestManagerDto>>());
+        }
+
+        public async Task<List<TestManagerDto>> GetNotTest()
+        {
+            var urls = await Task.Run(() => _testDomainService.GetAllInterfaceUrl().MapTo<List<TestManagerDto>>());
+
+
+
+            return urls;
         }
     }
 }

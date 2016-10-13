@@ -83,8 +83,7 @@ namespace Cloud.Domain
 
         #endregion
 
-        #region 执行测试动作并记录进数据库
-
+        #region 执行测试动作并记录进数据库 
 
         /// <summary>
         /// 执行测试
@@ -197,6 +196,16 @@ namespace Cloud.Domain
         {
             var interList = GetAllInterfaceManagers().Select(x => x.Id);
             throw new UserFriendlyException();
+        }
+
+        /// <summary>
+        /// 获取所有接口地址
+        /// </summary>
+        /// <returns></returns>
+        public List<InterfaceManager> GetAllInterfaceUrl()
+        {
+            var id = _mongoRepositories.Queryable().Select(x => new InterfaceManager(x.Id));
+            return id.ToList();
         }
 
         #endregion
