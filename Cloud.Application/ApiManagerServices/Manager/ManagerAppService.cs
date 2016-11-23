@@ -18,7 +18,7 @@ namespace Cloud.ApiManagerServices.Manager
 {
     public class ManagerAppService : AbpServiceBase, IManagerAppService
     {
-        public string AssemblyJsKey() => "ApiManager.cn";
+        public string AssemblyJsKey() => "www.ApiManager.cn";
         private readonly IManagerMongoRepositories _managerMongoRepositories;
         private readonly IManagerUrlStrategy _managerUrlStrategy;
         private readonly IAbpSession _abpSession;

@@ -130,14 +130,17 @@
     <Compile Include="Framework\IPageIndex.cs" />
     <Compile Include="Framework\PageIndex.cs" />
     <Compile Include="MonitorAppServices\AuditInfoApp\AuditInfoAppService.cs" />
+    <Compile Include="MonitorAppServices\AuditInfoApp\Dtos\AuditInfoDto.cs" />
     <Compile Include="MonitorAppServices\AuditInfoApp\Dtos\GetAllInput.cs" />
     <Compile Include="MonitorAppServices\AuditInfoApp\IAuditInfoAppService.cs" />
+    <Compile Include="MonitorAppServices\ExceptionApp\Dtos\ExceptionDto.cs" />
     <Compile Include="MonitorAppServices\ExceptionApp\Dtos\GetAllInput.cs" />
     <Compile Include="MonitorAppServices\ExceptionApp\Dtos\GetDetailsInput.cs" />
     <Compile Include="MonitorAppServices\ExceptionApp\Dtos\GetDetailsOutput.cs" />
     <Compile Include="MonitorAppServices\ExceptionApp\ExceptionAppService.cs" />
     <Compile Include="MonitorAppServices\ExceptionApp\IExceptionAppService.cs" />
     <Compile Include="MonitorAppServices\NetMonitorApp\Dtos\GetAllInput.cs" />
+    <Compile Include="MonitorAppServices\NetMonitorApp\Dtos\NetMonitorDto.cs" />
     <Compile Include="MonitorAppServices\NetMonitorApp\INetMonitorAppService.cs" />
     <Compile Include="MonitorAppServices\NetMonitorApp\NetMonitorAppService.cs" />
     <Compile Include="MonitorAppServices\RedisManagerApp\IRedisManagerAppService.cs" />

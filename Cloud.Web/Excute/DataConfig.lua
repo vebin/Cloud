@@ -37,11 +37,11 @@ dataConfig.testUrl = function()
     local result = {
         url =
         {
-            allInterface = "/api/services/CloudApi/Manager/AllInterface",
-            interface = "/api/services/CloudApi/Manager/Interface",
-            getNamespace = "/api/services/CloudApi/Manager/GetNamespace",
+            allInterface = "/api/services/app/Manager/AllInterface",
+            interface = "/api/services/app/Manager/Interface",
+            getNamespace = "/api/services/app/Manager/GetNamespace",
             loginUrl = host .. "/Account/LoginViewGet?userName={0}&password={1}",
-            initUrl = host .. "/api/services/CloudAPI/Manager/AllInterface",
+            initUrl = host .. "/api/services/app/Manager/AllInterface",
             testHost = host,
         },
         name = "NetWord",

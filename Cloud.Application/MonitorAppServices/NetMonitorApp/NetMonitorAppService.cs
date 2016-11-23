@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Abp.AutoMapper;
 using Cloud.ApiManagerServices.Manager.Dtos;
 using Cloud.Domain;
 using Cloud.Framework;
@@ -39,10 +41,10 @@ namespace Cloud.MonitorAppServices.NetMonitorApp
                 Url = "",
                 Children = new[]
                 {
-                    new NamespaceDto("Id",x.Id,""), 
-                    new NamespaceDto("Id",x.Ip,""), 
-                    new NamespaceDto("Id",x.Key,""), 
-                    new NamespaceDto("Id",x.Value,""), 
+                    new NamespaceDto("Id",x.Id,""),
+                    new NamespaceDto("Id",x.Ip,""),
+                    new NamespaceDto("Id",x.Key,""),
+                    new NamespaceDto("Id",x.Value,""),
                 }.ToList()
             });
             var returnValue = item.ToList();
@@ -54,6 +56,12 @@ namespace Cloud.MonitorAppServices.NetMonitorApp
 
             });
             return returnValue;
+        }
+
+        public Task Post(NetMonitorDto input)
+        {
+            var data = input.MapTo<NetMonitorEntity>();
+            return _netMonitorRepositories.InsertAsync(data);
         }
     }
 }

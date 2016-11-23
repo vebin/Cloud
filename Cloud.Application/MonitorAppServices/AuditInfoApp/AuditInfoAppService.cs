@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Abp.AutoMapper;
 using Cloud.ApiManagerServices.Manager.Dtos;
 using Cloud.Domain;
 using Cloud.Framework;
@@ -31,7 +33,7 @@ namespace Cloud.MonitorAppServices.AuditInfoApp
         }
 
         public List<NamespaceDto> GetNamespace()
-        { 
+        {
             var result = _mongoRepositories.GetEntities(false).Take(40).ToList();
 
             var item = result.Select(x => new NamespaceDto
@@ -64,6 +66,12 @@ namespace Cloud.MonitorAppServices.AuditInfoApp
 
             });
             return returnValue;
+        }
+
+        public Task Post(AuditInfoDto input)
+        {
+            var data = input.MapTo<AuditInfoEntity>(); 
+            return _mongoRepositories.InsertAsync(data);
         }
     }
 }

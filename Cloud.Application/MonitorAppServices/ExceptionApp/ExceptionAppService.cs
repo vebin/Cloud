@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Abp.AutoMapper;
 using Abp.Json;
 using Abp.UI;
 using Cloud.ApiManagerServices.Manager.Dtos;
 using Cloud.Domain;
 using Cloud.Framework;
 using Cloud.MonitorAppServices.ExceptionApp.Dtos;
+using Cloud.MonitorAppServices.NetMonitorApp.Dtos;
+using GetAllInput = Cloud.MonitorAppServices.ExceptionApp.Dtos.GetAllInput;
 
 namespace Cloud.MonitorAppServices.ExceptionApp
 {
@@ -18,6 +22,14 @@ namespace Cloud.MonitorAppServices.ExceptionApp
         public ExceptionAppService(IExceptionEntityRepositories exceptionEntityRepositories)
         {
             _exceptionEntityRepositories = exceptionEntityRepositories;
+        }
+
+
+        public Task Post(ExceptionDto input)
+        {
+            var data = input.MapTo<ExceptionEntity>();
+           return _exceptionEntityRepositories.InsertAsync(data);
+
         }
 
 
