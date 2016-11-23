@@ -106,7 +106,7 @@ end
 -- 文档
 dataConfig.document = function()
     local result = {
-        url = "mongodb://root:KONGque00@60.205.147.27",
+        url = "mongodb://127.0.0.1",
         name = "Mongodb",
         data = { control, document },
         type = "document",

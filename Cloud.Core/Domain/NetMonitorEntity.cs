@@ -15,7 +15,7 @@ namespace Cloud.Domain
 
         public string Value { get; set; }
 
-        public DateTime CreateTime { get; set; }
+        public DateTime CreateTime { get; set; } = DateTime.Now;
 
         public NetMonitorEntity()
         {
