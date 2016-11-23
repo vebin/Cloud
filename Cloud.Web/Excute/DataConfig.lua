@@ -33,19 +33,22 @@ end
 
 -- ApiManager
 dataConfig.testUrl = function()
-    local host = "http://localhost:6234";
+    local host = "http://localhost:58888";
     local result = {
         url =
         {
-            allInterface = "/api/services/app/Manager/AllInterface",
-            interface = "/api/services/app/Manager/Interface",
-            getNamespace = "/api/services/app/Manager/GetNamespace",
+            allInterface = "/api/services/CloudApi/Manager/AllInterface",
+            interface = "/api/services/CloudApi/Manager/Interface",
+            getNamespace = "/api/services/CloudApi/Manager/GetNamespace",
             loginUrl = host .. "/Account/LoginViewGet?userName={0}&password={1}",
             initUrl = host .. "/api/services/CloudAPI/Manager/AllInterface",
             testHost = host,
         },
         name = "NetWord",
-        data = { },
+        data = {
+			isDebugger = false,
+			isDynamic = false
+		 },
         type = "DynamicApi",
         dataType = "Json",
         contentType = "",
