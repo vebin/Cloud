@@ -45,10 +45,7 @@ dataConfig.testUrl = function()
             testHost = host,
         },
         name = "NetWord",
-        data = {
-			isDebugger = false,
-			isDynamic = false
-		 },
+        data = { },
         type = "DynamicApi",
         dataType = "Json",
         contentType = "",
@@ -56,6 +53,24 @@ dataConfig.testUrl = function()
         error = dataConfig.error
     };
     return result;
+end
+
+dataConfig.cloudConfig = function()
+	local result = {
+		url = { },
+        name = "cloudConfig",
+        data = {
+			isDebugger = true,
+			--数据隔离/自动刷新
+			dataIsolation = true
+		 },
+        type = "cloudConfig",
+        dataType = "Json",
+        contentType = "",
+        success = dataConfig.success,
+        error = dataConfig.error
+	}
+	return result;
 end
 
 -- 缓存

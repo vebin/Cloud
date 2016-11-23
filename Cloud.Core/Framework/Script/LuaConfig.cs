@@ -15,7 +15,7 @@ namespace Cloud.Framework.Script
 
         public string Name => ConfigResult.name;
 
-        public object Data => ConfigResult.data;
+        public dynamic Data => ConfigResult.data;
 
         public string Type => ConfigResult.type;
 

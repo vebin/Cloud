@@ -26,7 +26,7 @@ namespace Cloud.ApiManagerServices.Manager
         private readonly IRedisHelper _redisHelper;
         private readonly IEcmaScriptPacker _iecmaScriptPacker;
         private readonly TestDomainService _testDomainService;
-        
+
         public ManagerAppService(
             IManagerMongoRepositories managerMongoRepositories,
             IManagerUrlStrategy managerUrlStrategy,
@@ -79,10 +79,28 @@ namespace Cloud.ApiManagerServices.Manager
             _data = Network.DoGet<ViewDataMongoModel>(_managerUrlStrategy.InitUrl);
         }
 
-        private ViewDataMongoModel ViewDataMongoModel => _data ?? (_data = (Network.DoGet<ViewDataMongoModel>(_managerUrlStrategy.InitUrl)));
+        //private ViewDataMongoModel ViewDataMongoModel => _data ?? (_data = Network.DoGet<ViewDataMongoModel>(_managerUrlStrategy.InitUrl));
+        private ViewDataMongoModel ViewDataMongoModel
+        {
+            get
+            {
+                if (_data == null)
+                {
+                    _data = Network.DoGet<ViewDataMongoModel>(_managerUrlStrategy.InitUrl);
+                    return _data;
+                }
+                //数据隔离
+                if (CloudConfig.DataIsolation)
+                {
+                    return _data;
+                }
+                return Network.DoGet<ViewDataMongoModel>(_managerUrlStrategy.InitUrl);
+            }
+        }
+
 
         public ViewDataMongoModel AllInterface()
-        {
+        { 
             return ViewDataMongoModel;
         }
 

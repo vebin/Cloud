@@ -1,9 +1,16 @@
 ﻿using System.Web.Mvc;
+using Cloud.ApiManagerServices.Manager;
 
 namespace Cloud.Web.Controllers
 {
     public class HomeController : CloudControllerBase
     {
+        private readonly IManagerAppService _managerAppService;
+
+        public HomeController(IManagerAppService managerAppService)
+        {
+            _managerAppService = managerAppService;
+        }
 
         public ActionResult Index()
         {
@@ -20,8 +27,9 @@ namespace Cloud.Web.Controllers
         }
         public ActionResult Info()
         {
-            ViewBag.Controller = "cloud.userInfo.InfoEp";
-            ViewBag.Jump = "#";
+            _managerAppService.UpdateApiManager();
+            ViewBag.Controller = "cloud.manager.GetNamespaceEp";
+            ViewBag.Jump = "/apimanager/manager/edit";
             return View("~/Areas/ApiManager/Views/Manager/List.cshtml");
         }
     }
